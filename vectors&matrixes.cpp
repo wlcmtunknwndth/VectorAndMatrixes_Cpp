@@ -30,7 +30,14 @@ class vect
 		
 		void print();
 		
-		vect& operator=(const vect &r);
+		vect& operator=(const vect &r)
+		{
+			for(int i=0; i < r.dim; i++)
+			{
+				this->V[i]=r.V[i];
+			}
+			return *this; 
+		}
 		vect operator+(vect &r);
 		friend vect operator-(vect l, vect r);
 		vect& operator-();
@@ -52,13 +59,14 @@ vect vect::operator+(vect &r)
 
 vect& vect::operator=(const vect &r)
 {
-	vect TMP;
 	for(int i=0; i < r.dim; i++)
 	{
-		TMP.V[i]=r.V[i];
+		this->V[i]=r.V[i];
 	}
-	return TMP;
+	return *this; 
 } 
+
+
 
 
 int main()
